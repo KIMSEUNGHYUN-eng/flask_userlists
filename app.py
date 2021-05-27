@@ -7,7 +7,7 @@ app.debug = True
 @app.route('/',methods=['GET','POST'])
 
 def hello_world():
-    return 'Hello World!'
+    return render_template('home.html' , name="김승현")
 
 if __name__ == '__main__':
     app.run(port=5000)
