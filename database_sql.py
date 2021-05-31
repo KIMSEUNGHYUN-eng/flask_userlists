@@ -10,6 +10,9 @@
 # 	PRIMARY KEY (id)
 # 	) ENGINE=innoDB DEFAULT CHARSET=utf8;
 
+# from data import articles
+# from flask  import render_template
+
 import pymysql
 
 
@@ -22,17 +25,31 @@ db = pymysql.connect(
 
 cur = db.cursor()
 
-# query = 'SELECT * FROM topic;'
+# app= flask(__name__)
+# app.debug = True
 
-# cur.execute(query)
+# @app.route('/',methods=['GET','POST'])
+# def hello_world():
+#     return render_template('home.html',name="김승현")
 
-# db.commit()
+# def about():
+#     return render_template("about.html")
 
-# data = cur.fetchall()
+# @app.route('/articles',methods=['GET','POST'])
+# def articles():
+#     # articles = Articles()
+#     query = 'SELECT * FROM topic;'
 
-# print(data[0][2])
+#     cur.execute(query)
 
-# data[0][2]
+#     db.commit()
+
+#     articles = cur.fetchall()
+
+#     print(articles)
+#     return render_template("articles.html",aritcles = articles)
+
+#     data[0][2]
 
 # query= 'INSERT INTO `gangnam`.`topic` (`id`, `title`, `description`, `author`) VALUES (2 ,"자바" ,처음에는 가전제품 내에 탑재해 동작하는 프로그램을 위해 개발했지만 현재 웹 애플리케이션 개발에 가장 많이 사용하는 언어 가운데 하나이고, 모바일 기기용 소프트웨어 개발에도 널리 사용하고 있다. 현재 버전 15까지 출시했다.", "GARY");'
 
@@ -49,13 +66,30 @@ cur = db.cursor()
 
 # db.close() #연결 닫기
 
-query = DELETE FROM 'gangnam'.'topic' WHERE ('id' = '23');
+# query = DELETE FROM gangnam.topic WHERE ('id' = '23');
 
-cur.execute(query)
-db.commit()
+# cur.execute(query)
+# db.commit()
 
-db.close() #연결 닫기
-query= 'INSERT INTO `gangnam`.`topic` (`id`, `title`, `description`, `author`) VALUES (2 ,"자바" ,처음에는 가전제품 내에 탑재해 동작하는 프로그램을 위해 개발했지만 현재 웹 애플리케이션 개발에 가장 많이 사용하는 언어 가운데 하나이고, 모바일 기기용 소프트웨어 개발에도 널리 사용하고 있다. 현재 버전 15까지 출시했다.", "GARY");'
+# db.close() #연결 닫기
+# query= 'INSERT INTO `gangnam`.`topic` (`id`, `title`, `description`, `author`) VALUES (2 ,"자바" ,처음에는 가전제품 내에 탑재해 동작하는 프로그램을 위해 개발했지만 현재 웹 애플리케이션 개발에 가장 많이 사용하는 언어 가운데 하나이고, 모바일 기기용 소프트웨어 개발에도 널리 사용하고 있다. 현재 버전 15까지 출시했다.", "GARY");'
+
+# cur.execute(query)
+
+# db.commit()
+
+# db.close()
+
+query = ''' 
+        CREATE TABLE users(
+            id INT(11) AUTO_INCREMENT PRIMARY KEY, 
+            name VARCHAR(100),
+            email VARCHAR(100),
+            username VARCHAR(30),
+            password VARCHAR(100),
+            register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
+            ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    '''
 
 cur.execute(query)
 
